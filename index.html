@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <div class="grid"></div>
+    <dialog class="modal">
+      <div class="model-container">
+        <header class="modal-header">
+          modal header
+        </header>
+        <div class="modal-body">
+          <div class="input-wrap">
+            <label for="date">날짜</label>
+            <input id="date" type="datetime-local">
+          </div>
+          <div class="input-wrap">
+            <label for="amount">금액</label>
+            <input id="amount" type="number">
+          </div>
+          <div class="input-wrap">
+            <label for="summary">요약</label>
+            <input id="summary" type="text">
+          </div>
+          <div class="input-wrap">
+            <label for="memo">메모</label>
+            <input id="memo" type="text">
+          </div>
+        </div>
+        <footer class="modal-footer">
+          <div class="btn-wrap">
+            <button class="btn cancel">cancel</button>
+            <button class="btn confirm">confirm</button>
+          </div>
+        </footer>
+      </div>
+    </dialog>
+  </div>
+  <script>
+    async function getData(id) {
+      return fetch(`http://localhost:4508/data${id ? `?id=${id}` : ''}`).then(res => res.json())
+    }
+    
+
+    async function deleteData(id) {
+      return fetch(`http://localhost:4508/data/${id}`, {
+        method: "DELETE",
+      })
+    }
+
+    function setModalData(data) {
+      // const inputDate = 
+      // const { date, amount, summary, memo } = data
+      date.value = data.date.split(':').splice(0, 2).join(':')
+      amount.value = data.amount
+      summary.value = data.summary
+      memo.value = data.memo
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      fetch('http://localhost:4508/data')
+        .then(res => res.json())
+        .then(data => {
+          const grid = document.querySelector('.grid')
+          grid.insertAdjacentHTML('beforeend', `
+            <div class="grid__row --header">
+              <div class="grid__data --header">date</div>  
+              <div class="grid__data --header">amount</div>  
+              <div class="grid__data --header">summary</div>  
+              <div class="grid__data --header">memo</div>  
+              <div class="grid__data --header">action</div>  
+            </div>
+          `)
+          data.map(datum => {
+            return `
+              <div class="grid__row" data-id="${datum.id}">
+                <div class="grid__data">${new Date(datum.date).toLocaleString()}</div>  
+                <div class="grid__data">${datum.amount}</div>  
+                <div class="grid__data">${datum.summary}</div>  
+                <div class="grid__data">${datum.memo}</div>
+                <div class="grid__data">
+                  <button class="btn delete">삭제</div>
+                </div>
+              </div>
+            `
+          }).forEach(html => {
+            grid.insertAdjacentHTML('beforeend', html)
+          })
+          const modal = document.querySelector('.modal')
+          modal.addEventListener('click', e => {
+            if (e.target.classList.contains('cancel')) {
+              modal.close()
+            }
+          })
+          grid.addEventListener('click', async e => {
+            
+            if (e.target.classList.contains('delete')) {
+              const id = e.target.closest('.grid__row:not(.--header)').dataset.id
+              // const res = await deleteData(id)
+              // console.log(res)
+              // window.location.reload()
+            }
+            if (e.target.classList.contains('grid__data')) {
+              const id = e.target.closest('.grid__row:not(.--header)').dataset.id
+              const [ data ] = await getData(id)
+              setModalData(data)
+              modal.showModal()
+            }
+          })
+
+          
+        })
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+:root {
+  --padding: .5rem;
+}
+
+/* grid */
+.grid {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.grid__row {
+  display: flex;
+  border-bottom: 1px solid #000;
+}
+
+.grid__row .--header {
+  background-color: #eee;
+  text-align: center;
+}
+
+.grid__row:hover {
+  background-color: #ddd;
+}
+
+.grid__row:active {
+  background-color: red;
+}
+
+.grid__data {
+  flex: 1 0 fit-content;
+  box-sizing: border-box;
+  padding: var(--padding);
+}
