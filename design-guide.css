@@ -1,4 +1,8 @@
 :root {
+  --test: {
+    font-weight: 700;
+    font-color: red;
+  };
   /* gap */
   --gap-xxs: 4px;
   --gap-xs: 8px;
@@ -198,31 +202,55 @@
 /* UI Component */
 /* + size */
 .component-xxxs {
+  height: 24px;
   font-size: var(--txt-2xs);
+  padding: 0 4px;
 }
 .component-xxs {
+  height: 28px;
   font-size: var(--txt-xs);
+  padding: 0 8px;
 }
 .component-xs {
+  height: 32px;
   font-size: var(--txt-xs);
+  padding: 0 8px;
 }
 .component-sm {
+  height: 36px;
   font-size: var(--txt-xs);
+  padding: 0 12px;
 }
 .component-md {
+  height: 40px;
   font-size: var(--txt-xs);
+  padding: 0 16px;
 }
 .component-lg {
+  height: 44px;
   font-size: var(--txt-sm);
+  padding: 0 20px;
 }
 .component-xl {
+  height: 48px;
   font-size: var(--txt-sm);
+  padding: 0 24px;
 }
 .component-xxl {
+  height: 52px;
   font-size: var(--txt-sm);
+  padding: 0 28px;
 }
 .component-xxxl {
+  height: 56px;
   font-size: var(--txt-md);
+  padding: 0 32px;
+}
+.component-block {
+  width: 100%;
+  height: 64px;
+  font-size: var(--txt-md);
+  padding: 0 32px;
 }
 
 
@@ -281,4 +309,3 @@
 /* low emphasis - 텍스트 */
 
 /*************************************************************************/
-
