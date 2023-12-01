@@ -1,0 +1,202 @@
+@use "sass:map";
+
+// variables
+// gap
+$gap: (
+  xxs: 4px,
+  xs: 8px,
+  'sm': 16px,
+  'md': 20px,
+  'lg': 40px,
+  'xl': 60px,
+);
+
+// font-size
+$title: (
+  '2xs': 12px,
+  xs: 14px,
+  sm: 16px,
+  md: 18px,
+  lg: 21px,
+  xl: 24px,
+  '2xl': 36px,
+  '3xl': 48px,
+  '4xl': 60px,
+  '5xl': 72px,
+);
+  
+$text: (
+  '2xs': 10px,
+  xs: 12px,
+  sm: 14px,
+  md: 16px,
+  lg: 18px,
+  xl: 20px,
+  '2xl': 22px,
+  '3xl': 24px,
+  '4xl': 26px,
+  '5xl': 28px,
+);
+
+// font-weight
+$font-weight: (
+  light: 300,
+  regular: 400,
+  medium: 500,
+  bold: 700,
+  extra-bold: 800,
+);
+
+// line-height
+$line-height: 1.75;
+
+// color
+$color: (
+  primary: #3d5afe,
+  secondary: #ff6e40,
+  red: #d32f2f,
+  yellow: #f9a825,
+  green: #4caf50,
+  blue: #0091ae,
+  white: #ffffff,
+  grey-100: #f5f5f5,
+  grey-200: #eeeeee,
+  grey-300: #e0e0e0,
+  grey-400: #bdbdbd,
+  grey-500: #9e9e9e,
+  grey-600: #757575,
+  grey-700: #616161,
+  grey-800: #424242,
+  grey-900: #212121,
+  black: #000000,
+);
+
+// icon
+$icon: (
+
+);
+
+// component core
+// size
+$size-height: (
+  xxxs: 24px,
+  xxs: 28px,
+  xs: 32px,
+  sm: 36px,
+  md: 40px,
+  lg: 44px,
+  xl: 48px,
+  xxl: 52px,
+  xxxl: 56px,
+);
+
+$size-padding: (
+  xxxs: 0 4px,
+  xxs: 0 8px,
+  xs: 0 8px,
+  sm: 0 12px,
+  md: 0 16px,
+  lg: 0 20px,
+  xl: 0 24px,
+  xxl: 0 28px,
+  xxxl: 0 32px,
+);
+
+$size-fs: (
+  xxxs: map.get($text, '2xs'),
+  xxs: map.get($text, xs),
+  xs: map.get($text, xs),
+  sm: map.get($text, xs),
+  md: map.get($text, xs),
+  lg: map.get($text, sm),
+  xl: map.get($text, sm),
+  xxl: map.get($text, sm),
+  xxxl: map.get($text, md),
+);
+
+$sizes: xxxs, xxs, xs, sm, md, lg, xl, xxl, xxxl;
+
+@mixin component($size: md) {
+  height: map.get($size-height, $size);
+  padding: map.get($size-padding, $size);
+  font-size: map.get($size-fs, $size);
+  @content;
+}
+
+// style
+$style-bg: (
+    fill: #fff,
+);
+
+$style-br: (
+  square: 0,
+  xs: 2px,
+  sm: 4px,
+  md: 6px,
+  lg: 8px,
+  xl: 10px,
+  round: 16px,
+);
+
+$style-shadow: (
+    sm: 0 2px 4px rgba(0, 0, 0, .1),
+    md: '0 4px 8px rgba(0, 0, 0, .12), 0 2px 4px rgba(0, 0, 0, .08)',
+    lg: '0 15px 30px rgba(0, 0, 0, .11), 0 5px 15px rgba(0, 0, 0, .08)',
+);
+
+
+// input system
+@mixin default {
+  color: map.get($color, grey-700);
+  border-color: map.get($color, grey-400);
+}
+
+@mixin disabled {
+  color: map.get($color, grey-500);
+  background-color: map.get($color, grey-100);
+}
+
+@mixin focus {
+  color: map.get($color, grey-700);
+  background-color: map.get($color, grey-400);
+  box-shadow: unquote(map.get($style-shadow, md));
+}
+
+@mixin placeholder {
+  color: map.get($color, grey-500);
+  border-color: map.get($color, grey-400);
+}
+
+@mixin warning {
+  color: map.get($color, grey-700);
+  border-color: map.get($color, yellow);
+}
+
+@mixin error {
+  color: map.get($color, grey-700);
+  border-color: map.get($color, red);
+}
+
+@mixin success {
+  color: map.get($color, grey-700);
+  border-color: map.get($color, green);
+}
+
+@mixin information {
+  color: map.get($color, grey-700);
+  border-color: map.get($color, blue);
+}
+
+// help-text
+.help-text-sm {
+  font-size: map.get($text, xs);
+  margin-top: map.get($gap, xs);
+}
+.help-text-md {
+  font-size: map.get($text, xs);
+  margin-top: 14px;
+}
+.help-text-lg {
+  font-size: map.get($text, xs);
+  margin-top: map.get($gap, sm);
+}
