@@ -24,10 +24,17 @@ button {
     &.primary {
       background-color: map.get($color, primary);
       color: map.get($color, white);
+      &:hover {
+        background-color: lighten(map.get($color, primary), 10%);
+        box-shadow: unquote(map.get($style-shadow, md));
+      }
     }
     &.secondary {
       background-color: map.get($color, secondary);
       color: map.get($color, black);
+      &:hover {
+        background-color: lighten(map.get($color, secondary), 10%);
+      }
     }
   }
   &.solid {
@@ -35,10 +42,16 @@ button {
     &.primary {
       border-color: map.get($color, primary);
       color: map.get($color, primary);
+      &:hover {
+        border-color: lighten(map.get($color, primary), 10%);
+      }
     }
     &.secondary {
       border-color: map.get($color, secondary);
       color: map.get($color, secondary);
+      &:hover {
+        border-color: lighten(map.get($color, secondary), 10%);
+      }
     }
   }
 }

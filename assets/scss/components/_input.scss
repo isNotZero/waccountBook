@@ -19,6 +19,9 @@ input {
     @include component(xs) {
       border: map.get($style-bg, border-solid)
     }
-    @include default
+    @include default;
+    &:focus {
+      @include focus
+    }
   }
 }
