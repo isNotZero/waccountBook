@@ -7,6 +7,7 @@ button {
   border: 0;
   outline: 0;
   padding: 0;
+  background-color: transparent
 }
 .btn-wrap {
   display: flex;
@@ -16,5 +17,28 @@ button {
 
 .btn {
   flex: 1 0 fit-content;
-  @include component(xs)
+  @include component(xs) {
+    border-radius: map.get($style-br, lg)
+  };
+  &.fill {
+    &.primary {
+      background-color: map.get($color, primary);
+      color: map.get($color, white);
+    }
+    &.secondary {
+      background-color: map.get($color, secondary);
+      color: map.get($color, black);
+    }
+  }
+  &.solid {
+    border: map.get($style-bg, border-solid);
+    &.primary {
+      border-color: map.get($color, primary);
+      color: map.get($color, primary);
+    }
+    &.secondary {
+      border-color: map.get($color, secondary);
+      color: map.get($color, secondary);
+    }
+  }
 }

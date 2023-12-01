@@ -11,6 +11,9 @@ input {
   display: flex;
   align-items: center;
   gap: map.get($gap, xs);
+  label {
+    font-size: map.get($text, xs)
+  }
   input {
     flex: 1;
     @include component(xs) {

@@ -1,0 +1,15 @@
+@use 'sass:map';
+
+// footer
+#footer {
+  display: flex;
+  align-items: center;
+  height: map.get($size-height, xxxl);
+  box-sizing: border-box;
+  padding: map.get($gap, sm);
+  background-color: map.get($color, white);
+
+  .btn-wrap {
+    flex: 1;
+  }
+}

@@ -1,3 +1,5 @@
+@use 'sass:map';
+
 /* grid */
 .grid {
   display: flex;
@@ -8,21 +10,19 @@
 
 .grid__row {
   display: flex;
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid map.get($color, black);
   text-align: center;
-}
-
-.grid__row .--header {
-  background-color: #eee;
-  text-align: center;
-}
-
-.grid__row:hover {
-  background-color: #ddd;
-}
-
-.grid__row:active {
-  background-color: red;
+  transition: all .1s;
+  & .--header {
+    background-color: map.get($color, grey-100);
+    font-weight: map.get($font-weight, bold)
+  }
+  &:hover {
+    background-color: map.get($color, grey-200);
+  }
+  &:active {
+    background-color: map.get($color, grey-300);
+  }
 }
 
 .grid__data {
