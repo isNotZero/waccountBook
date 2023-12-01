@@ -1,17 +1,15 @@
-:root {
-  --padding: .5rem;
-}
-
 /* grid */
 .grid {
   display: flex;
   flex-direction: column;
   width: 100%;
+  font-size: 14px;
 }
 
 .grid__row {
   display: flex;
   border-bottom: 1px solid #000;
+  text-align: center;
 }
 
 .grid__row .--header {
@@ -28,7 +26,10 @@
 }
 
 .grid__data {
-  flex: 1 0 fit-content;
+  flex: 1 0 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   box-sizing: border-box;
-  padding: var(--padding);
+  padding: .5rem;
 }

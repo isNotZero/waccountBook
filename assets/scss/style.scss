@@ -1,5 +1,12 @@
-@import 'abstract/variables';
-@import 'abstract/mixins';
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
 
 @import 'base/typography';
 @import 'base/reset';
+
+@import 'layout/contents';
+
+@import 'components/input';
+@import 'components/button';
+@import 'components/grid';
+@import 'components/modal';

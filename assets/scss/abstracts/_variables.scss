@@ -1,3 +1,5 @@
+@use "sass:map";
+
 // variables
 // gap
 $gap: (
@@ -117,6 +119,8 @@ $sizes: xxxs, xxs, xs, sm, md, lg, xl, xxl, xxxl;
 // style
 $style-bg: (
     fill: #fff,
+    border-solid: 1px solid #fff,
+    border-dashed: 1px dashed #fff,
 );
 
 $style-br: (

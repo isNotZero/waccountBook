@@ -1,0 +1,26 @@
+@use "sass:map";
+
+// modal
+dialog {
+  border: 0;
+  padding: 0;
+}
+.modal {
+  min-width: 50%;
+  border-radius: map.get($style-br, round);
+  padding: map.get($gap, sm);
+  
+  .modal-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: map.get($gap, sm);
+  }
+  
+  .modal-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: map.get($gap, xs);
+  }
+}

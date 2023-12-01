@@ -1,0 +1,20 @@
+@use 'sass:map';
+
+// button
+button {
+  appearance: none;
+  margin: 0;
+  border: 0;
+  outline: 0;
+  padding: 0;
+}
+.btn-wrap {
+  display: flex;
+  align-items: center;
+  gap: map.get($gap, xs);
+}
+
+.btn {
+  flex: 1 0 fit-content;
+  @include component(xs)
+}
