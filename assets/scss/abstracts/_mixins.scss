@@ -1,0 +1,51 @@
+@use "sass:map";
+
+// component core
+@mixin component($size: md) {
+  height: map.get($size-height, $size);
+  padding: map.get($size-padding, $size);
+  font-size: map.get($size-fs, $size);
+  @content;
+}
+
+// input system
+@mixin default {
+  color: map.get($color, grey-700);
+  border-color: map.get($color, grey-400);
+}
+
+@mixin disabled {
+  color: map.get($color, grey-500);
+  background-color: map.get($color, grey-100);
+}
+
+@mixin focus {
+  color: map.get($color, grey-700);
+  background-color: map.get($color, grey-400);
+  box-shadow: unquote(map.get($style-shadow, md));
+}
+
+@mixin placeholder {
+  color: map.get($color, grey-500);
+  border-color: map.get($color, grey-400);
+}
+
+@mixin warning {
+  color: map.get($color, grey-700);
+  border-color: map.get($color, yellow);
+}
+
+@mixin error {
+  color: map.get($color, grey-700);
+  border-color: map.get($color, red);
+}
+
+@mixin success {
+  color: map.get($color, grey-700);
+  border-color: map.get($color, green);
+}
+
+@mixin information {
+  color: map.get($color, grey-700);
+  border-color: map.get($color, blue);
+}
