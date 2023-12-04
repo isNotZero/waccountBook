@@ -158,7 +158,7 @@ $style-shadow: (
 
 @mixin focus {
   color: map.get($color, grey-700);
-  background-color: map.get($color, grey-400);
+  border-color: map.get($color, grey-400);
   box-shadow: unquote(map.get($style-shadow, md));
 }
 
