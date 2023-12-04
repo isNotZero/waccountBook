@@ -200,3 +200,8 @@ $style-shadow: (
   font-size: map.get($text, xs);
   margin-top: map.get($gap, sm);
 }
+
+// function
+@function getVar($type: $text, $size: md) {
+  @return map.get($type, $size)
+};
