@@ -73,8 +73,41 @@ $color: (
 
 // icon
 $icon: (
-
+  area: (
+    min: 44px,
+    default: 44px,
+  ),
+  size: (
+    18: (
+      width: 16px,
+      padding: 1px,
+      margin: 15px,
+    ),
+    24: (
+      width: 20px,
+      padding: 2px,
+      margin: 12px,
+    ),
+    36: (
+      width: 30px,
+      padding: 3px,
+      margin: 6px,
+    ),
+    48: (
+      width: 40px,
+      padding: 4px,
+      margin: 0px,
+    ),
+  )
 );
+
+@each $key, $value in map.get($icon, size) {
+  .icon-#{$key} {
+    @each $k, $val in $value {
+      #{$k}: $val    
+    }
+  }
+}
 
 // component core
 // size
@@ -205,3 +238,9 @@ $style-shadow: (
 @function getVar($type: $text, $size: md) {
   @return map.get($type, $size)
 };
+
+.test {
+    font-weight: getVar($font-weight, bold);
+    font-size: getVar($size-padding, lg);
+}
+
